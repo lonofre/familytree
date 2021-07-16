@@ -6,4 +6,16 @@ const personTable = `
         birthdate        VARCHAR
     )`;
 
-export default [personTable];
+const relativeTable = `
+    CREATE TABLE IF NOT EXISTS relative (
+        parentId          INTEGER,
+        childId           INTEGER,
+        kindship          STRING,
+        FOREIGN KEY (parentId) REFERENCES person(id),
+        FOREIGN KEY (childId)  REFERENCES childId(id)
+    )
+`;
+
+const tables = [personTable, relativeTable];
+
+export default tables;
